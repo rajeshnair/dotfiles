@@ -1,7 +1,6 @@
 [user]
-	name = Sebastian Dahlgren
-	email = sebastian.dahlgren@gmail.com
-	signingkey = 0AAC354611A9CF4B
+	name = Rajesh Nair
+	email = rajesh.nair.in@gmail.com
 [alias]
 	branches = !git for-each-ref \
 		--sort=-committerdate \
@@ -55,6 +54,6 @@
 [branch]
 	autoSetupRebase = always
 [github]
-	user = sebdah
+	user = rajeshnair
 [commit]
 	gpgsign = true
