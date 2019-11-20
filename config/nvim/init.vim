@@ -6,7 +6,7 @@ Plug 'godlygeek/tabular'           " This must come before plasticboy/vim-markdo
 Plug 'tpope/vim-rhubarb'           " Depenency for tpope/fugitive
 
 " General plugins
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'  " Default snippets for many languages
 Plug 'bling/vim-airline'
@@ -30,6 +30,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
 Plug 'Numkil/ag.nvim'
+Plug 'maksimr/vim-jsbeautify'
 
 " Vim only plugins
 if !has('nvim')
@@ -43,7 +44,7 @@ Plug 'cespare/vim-toml'                        " toml syntax highlighting
 Plug 'chr4/nginx.vim'                          " nginx syntax highlighting
 Plug 'dag/vim-fish'                            " Fish syntax highlighting
 Plug 'digitaltoad/vim-pug'                     " Pug syntax highlighting
-Plug 'fatih/vim-go'                            " Go support
+Plug 'fatih/vim-go', {'do':':GoUpdateBinaries'} " Go support
 Plug 'fishbullet/deoplete-ruby'                " Ruby auto completion
 Plug 'hashivim/vim-terraform'                  " Terraform syntax highlighting
 Plug 'kchmck/vim-coffee-script'                " CoffeeScript syntax highlighting
@@ -95,6 +96,7 @@ set softtabstop=2
 set tabstop=2
 set title                         " let vim set the terminal title
 set updatetime=100                " redraw the status bar often
+set maxmempattern=5000            " set maxmempattern to 5000 from 1000
 
 " neovim specific settings
 if has('nvim')
@@ -206,11 +208,14 @@ nnoremap <leader>q :close<cr>
 if has('nvim')
     " Enable deoplete on startup
     let g:deoplete#enable_at_startup = 1
+    let g:deoplete#file#enable_buffer_path = 1
+    let g:deoplete#enable_smart_case = 1
+    let g:deoplete#sources#jedi#python_path = 'python3'
 endif
 
 " Disable deoplete when in multi cursor mode
 function! Multiple_cursors_before()
-    let b:deoplete_disable_auto_complete = 1
+    let b:deoplete_disable_auto_complete = 0
 endfunction
 
 function! Multiple_cursors_after()
@@ -432,6 +437,11 @@ let g:go_metalinter_enabled = [
 let g:go_addtags_transform = "snakecase"
 
 " neomake configuration for Go.
+autocmd BufWritePost * Neomake
+let g:neomake_error_sign   = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
+let g:neomake_warning_sign = {'text': '∆', 'texthl': 'NeomakeWarningSign'}
+let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
+let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
 let g:neomake_go_enabled_makers = [ 'go', 'gometalinter' ]
 let g:neomake_go_gometalinter_maker = {
   \ 'args': [
@@ -520,10 +530,20 @@ au FileType yaml set softtabstop=2
 au FileType yaml set tabstop=2
 
 "----------------------------------------------
-" Language: Javascript
+" Language: feature
+"----------------------------------------------
+au FileType feature set expandtab
+au FileType feature set shiftwidth=2
+au FileType feature set softtabstop=2
+au FileType feature set tabstop=2
+
+"----------------------------------------------
+" Language: JSON
 "----------------------------------------------
 au FileType js set expandtab
 au FileType js set shiftwidth=2
 au FileType js set softtabstop=2
 au FileType js set tabstop=2
 au FileType js set syntax=javascript
+
+
