@@ -31,6 +31,7 @@ Plug 'tpope/vim-surround'
 Plug 'vimwiki/vimwiki'
 Plug 'Numkil/ag.nvim'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Vim only plugins
 if !has('nvim')
@@ -93,6 +94,7 @@ set ruler
 set formatoptions=tcqronj         " set vims text formatting options
 set foldmethod=indent
 set softtabstop=2
+set shiftwidth=4
 set tabstop=2
 set title                         " let vim set the terminal title
 set updatetime=100                " redraw the status bar often
@@ -106,6 +108,15 @@ if has('nvim')
     " pip3.6 install -U neovim
     let g:python_host_prog = '/usr/bin/python2'
     let g:python3_host_prog = '/usr/local/homebrew/bin/python3'
+
+    " Enable alignment
+    let g:neoformat_basic_format_align = 1
+
+    " Enable tab to space conversion
+    let g:neoformat_basic_format_retab = 1
+
+    " Enable trimmming of trailing whitespace
+    let g:neoformat_basic_format_trim = 1
 endif
 
 " Enable mouse if possible
@@ -510,6 +521,10 @@ au FileType make set noexpandtab
 au FileType make set shiftwidth=2
 au FileType make set softtabstop=2
 au FileType make set tabstop=2
+au FileType Makefile set noexpandtab
+au FileType Makefile set shiftwidth=2
+au FileType Makefile set softtabstop=2
+au FileType Makefile set tabstop=2
 
 "----------------------------------------------
 " Language: Markdown

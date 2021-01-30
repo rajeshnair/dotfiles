@@ -1,5 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/Users/rajesh/projects/self-study/machine-learning/housing_price_prediction/models'
+let g:netrw_dirhist_8='/Users/rajesh/projects/ericssson/ticket-sla-prediction/docker'
+let g:netrw_dirhist_7='/private/tmp/aaa'
+let g:netrw_dirhist_6='/Users/rajesh/projects/ericssson/ticket-sla-prediction/notebooks/model_scripts'
 let g:netrw_dirhist_5='/Users/rajeshnair/projects/opera/opera-bank/consumer/transaction/gen/go/opera/api/order/v1'
 let g:netrw_dirhist_4='/Users/rajeshnair/projects/opera/opera-bank/consumer/transaction/gen/go/opera/api/order'
 let g:netrw_dirhist_3='/Users/rajeshnair/projects/opera/opera-bank/consumer/transaction/gen/go/opera/api'

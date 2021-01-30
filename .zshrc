@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/rajesh/.oh-my-zsh"
+export ZSH="/Users/rajesh/.oh-my-zsh"
 source ~/.paths.sh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -18,7 +18,7 @@ ZSH_THEME="agnoster"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -63,12 +63,10 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  sudo 
-  git 
-  history 
-  taskwarrior 
-  tmux 
-  tmuxinator 
+  sudo
+  git
+  history
+  taskwarrior
   zsh-autosuggestions
   zsh-completions
 )
@@ -107,9 +105,15 @@ source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 POWERLEVEL9K_MODE='awesome-patched'
 ZSH_TMUX_AUTOSTART='true'
 autoload -U compinit && compinit
-source /home/rajesh/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /Users/rajesh/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir newline vcs)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/rajesh/devenv/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/rajesh/devenv/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/rajesh/devenv/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/rajesh/devenv/google-cloud-sdk/completion.zsh.inc'; fi
